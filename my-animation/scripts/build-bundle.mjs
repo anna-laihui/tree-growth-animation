@@ -23,6 +23,13 @@ const MP4_PURPOSE = "備用方案：Lottie JSON 無法播放時改播這些影�
 const MP4_WITHERED_NOTE = "提醒：04、05 枯萎的 MP4 是整支循環播放，每一輪開頭葉子會長回來、再重新掉落一次，這點和 Lottie 版「掉葉後永久保留」不同";
 // linked from the preview page so viewers can find the source project
 const REPO_URL = "https://github.com/iHealhui/tree-growth-animation";
+// the only third-party package the bundle uses. Pinned + SRI so a tampered
+// CDN file is refused by the browser; the hash is cdnjs's published value and
+// matches build/player/lottie.min.js in the official npm tarball. Update both
+// together if the version ever changes.
+const LOTTIE_VERSION = "5.12.2";
+const LOTTIE_CDN_URL = `https://cdnjs.cloudflare.com/ajax/libs/bodymovin/${LOTTIE_VERSION}/lottie.min.js`;
+const LOTTIE_SRI = "sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg==";
 
 // fs.cpSync silently kills Node 24 on Windows when the path has non-ASCII
 // characters (this project lives under 愛管家/), so copy folders by hand.
@@ -181,7 +188,7 @@ const previewHtml = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <title>Tree Growth Animation - Preview</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+<script src="${LOTTIE_CDN_URL}" integrity="${LOTTIE_SRI}" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <style>
   html, body { margin: 0; padding: 0; background: #111; color: #eee; font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", sans-serif; }
   .info { padding: 12px 16px; font-size: 13px; line-height: 1.6; background: #1a1a1a; border-bottom: 1px solid #333; }
@@ -450,6 +457,16 @@ ${readmeSections.join("\n---\n\n")}
 ## 疊圖方式
 
 所有動畫畫布都是 1000x1000、30fps、900 frames(05 枯萎為 1110 frames，見上方說明)，樹的動畫直接疊在背景動畫上方(兩個獨立的 Lottie 容器，CSS \`position:absolute; inset:0\` 疊在同一個畫布尺寸的容器裡)即可對齊，不需要額外座標偏移。範例見 \`preview/index.html\`。
+
+## 使用的第三方套件
+
+| 套件 | 版本 | 來源 |
+|---|---|---|
+| \`lottie-web\`(Airbnb 官方 Lottie 網頁播放器) | ${LOTTIE_VERSION} | npm: \`npm install lottie-web@${LOTTIE_VERSION}\`；或 CDN: \`${LOTTIE_CDN_URL}\` |
+
+- 請鎖定上面的版本，不要用 \`latest\` 或不帶版本號的網址。
+- 從 CDN 載入時請加上 SRI 驗證(\`preview/index.html\` 已經這樣寫)：\`integrity="${LOTTIE_SRI}" crossorigin="anonymous"\`
+- 注意不要和名稱相近的 \`@lottiefiles/lottie-player\` 搞混，那是不同的套件(2024 年 10 月曾被植入惡意程式)。
 
 ## 之後更新或追加階段時
 

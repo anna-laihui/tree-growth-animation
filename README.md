@@ -69,6 +69,17 @@
 
 各階段什麼時候切換、怎麼切換，由產品端自行決定，這份素材不包含切換邏輯。
 
+## 使用的第三方套件
+
+| 套件 | 版本 | 來源 |
+|---|---|---|
+| `lottie-web`（Airbnb 官方 Lottie 網頁播放器） | 5.12.2 | npm：`npm install lottie-web@5.12.2`；或 CDN：`https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js` |
+
+- 請鎖定上面的版本，不要用 `latest` 或不帶版本號的網址。
+- 從 CDN 載入時請加上 SRI 驗證（交付包的 `preview/index.html` 已經這樣寫）：
+  `integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg==" crossorigin="anonymous"`
+- 注意不要和名稱相近的 `@lottiefiles/lottie-player` 搞混，那是不同的套件（2024 年 10 月曾被植入惡意程式）。
+
 ## 這個專案裡有什麼（製作端用）
 
 以下是製作動畫用的原始檔，**使用素材的人不需要理會**。
