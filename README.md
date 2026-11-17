@@ -9,8 +9,8 @@
 > 預設是用在**網頁**上。如果不是網頁（例如手機 App），請把第三行的「網頁」改成你用的平台。
 
 ```
-請閱讀這個專案的說明：https://github.com/iHealhui/tree-growth-animation
-這是一組樹木成長的 Lottie 動畫素材（從預覽頁下載交付包：https://ihealhui.github.io/tree-growth-animation/），
+請閱讀這個專案的說明：https://github.com/anna-laihui/tree-growth-animation
+這是一組樹木成長的 Lottie 動畫素材（從預覽頁下載交付包：https://anna-laihui.github.io/tree-growth-animation/），
 我要在網頁上使用。
 請依照以下規格，給我可以直接使用的完整範例程式碼，並一步一步說明要怎麼放進我的網頁：
 
@@ -39,7 +39,7 @@
 
 ## 下載動畫素材
 
-**預覽頁：https://ihealhui.github.io/tree-growth-animation/**
+**預覽頁：https://anna-laihui.github.io/tree-growth-animation/**
 
 - 可以切換各階段，看樹木動畫疊在背景上的實際效果
 - 「下載完整交付包 (.zip)」：所有動畫檔加使用說明，**通常下載這個就夠了**

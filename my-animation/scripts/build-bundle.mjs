@@ -22,7 +22,7 @@ const MP4_PURPOSE = "備用方案：Lottie JSON 無法播放時改播這些影�
 // stages' leaves come back each cycle in the MP4 fallback
 const MP4_WITHERED_NOTE = "提醒：04、05 枯萎的 MP4 是整支循環播放，每一輪開頭葉子會長回來、再重新掉落一次，這點和 Lottie 版「掉葉後永久保留」不同";
 // linked from the preview page so viewers can find the source project
-const REPO_URL = "https://github.com/iHealhui/tree-growth-animation";
+const REPO_URL = "https://github.com/anna-laihui/tree-growth-animation";
 // the only third-party package the bundle uses. Pinned + SRI so a tampered
 // CDN file is refused by the browser; the hash is cdnjs's published value and
 // matches build/player/lottie.min.js in the official npm tarball. Update both
